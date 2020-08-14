@@ -94,7 +94,7 @@ Reservation
                                 <td>
                                     <div class="btn-group">
                                         @if (!$reserv->status)
-                                        <a href="{{route('admin.reserv.confirm',$reserv->id)}}"
+                                        <a href="{{route('admin.reserv.confirmation',$reserv->id)}}"
                                             onclick="confirm('Are you sure you want to confirm?')"
                                             class='btn btn-sm btn-warning'>confirm</a>
                                         @endif

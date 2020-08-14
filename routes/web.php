@@ -26,7 +26,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth', 'na
     Route::resource('category', 'CategoryController');
     Route::resource('item', 'ItemController');
     Route::get('reserv', 'ReservController@index')->name('reserv.index');
-    Route::get('reserv/{reserv}', 'ReservController@confirm_reserv')->name('reserv.confirm');
+    Route::get('reserv/confirm/{reserv}', 'ReservController@confirm_reserv')->name('reserv.confirmation');
     Route::get('reserv/{reserv}', 'ReservController@delete')->name('reserv.delete');
     Route::get('contact', 'ContactController@index')->name('contact.index');
     Route::get('contact/us/{contact}', 'ContactController@seen')->name('contact.status');

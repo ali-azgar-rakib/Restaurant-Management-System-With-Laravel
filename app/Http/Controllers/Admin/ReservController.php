@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Reserv;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Notifications\ReservationConfirm;
+use Illuminate\Support\Facades\Notification;
 
 class ReservController extends Controller
 {
@@ -20,6 +22,9 @@ class ReservController extends Controller
         $reserv->update([
             'status' => true
         ]);
+
+        Notification::route('mail', $reserv->email)
+            ->notify(new ReservationConfirm());
 
         return back()->with('success', 'Reservation confirmed');
     }
